@@ -32,7 +32,7 @@ app.post(
     next();
   },
   // 3) 本番運用用：署名検証ミドルウェアを有効化
-  lineMiddleware(lineConfig),
+  require("@line/bot-sdk").middleware(lineConfig),
   // 4) 実際の処理
   async (req, res) => {
     console.log("▶ Webhook payload:", JSON.stringify(req.body, null, 2));
